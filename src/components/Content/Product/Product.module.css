@@ -1,0 +1,27 @@
+.AboutProduct, .Product {
+    display: grid;
+    grid-template-columns: 25vw 25vw 25vw 10vw 5vw;
+    text-align: center;
+}
+
+.Product {
+    font-weight: 500;
+    border: solid 1px black;
+    margin: 0 auto 1vw auto;
+    width: 90vw;
+    
+}
+.imgProduct{
+    height: 20vh;
+    margin: 1vw 2vw
+}
+.AboutProduct {
+    display: grid;
+    grid-template-columns: 25vw 25vw 25vw 25vw;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bolder;
+}
+.Title,.Category,.Price,.Star{
+    margin: auto 0;
+}

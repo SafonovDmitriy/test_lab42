@@ -1,0 +1,50 @@
+
+
+.clipSvg {
+  width: 0;
+  height: 0;
+}
+
+.clipWrap {
+  display: inline-block;
+  vertical-align: top;
+  margin: 8vh 0 0 0; 
+  /* padding: 10px; */
+}
+
+.clipEach,.active {
+  width: 4vw;
+  height: 5.5vh;
+  position: relative;
+}
+
+.clipEach:after {
+  content: "";
+  position: absolute;
+  background: #fff;
+}
+
+.active:after {
+  content: "";
+  position: absolute;
+  background-color: yellow
+}
+
+.clipEach, .clipEach:after,.active,.active:after {
+  -webkit-clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+  clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+  clip-path: url("#octagon-clip");
+}
+
+
+
+.borderStyleThin {
+  background-color: black;
+}
+
+.borderStyleThin:after {
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+}

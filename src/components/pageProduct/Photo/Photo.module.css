@@ -1,0 +1,50 @@
+.Photo {
+    max-height: 20vh;
+    min-height: 50vh;
+}
+
+.mini {
+    margin-left: 3vw;
+}
+
+.mini img {
+    max-width: 50px;
+    max-height: 33px;
+    margin: 5px;
+}
+
+.diactivated {
+    opacity: 25%;
+}
+
+.Navi {
+    position: absolute;
+    height: 50vh;
+    width: 7vw;
+    background-color: black;
+    opacity: 0%;
+    color: white;
+}
+
+.Navi:hover {
+    animation-duration: 1s;
+    animation-name: slidein;
+    animation-fill-mode: both;
+}
+
+.Last {
+    margin: 3vw -33vw;
+}
+
+.Next {
+    margin: 3vw -10vw;
+}
+
+@keyframes slidein {
+    from {
+        opacity: 10%;
+    }
+    to {
+        opacity: 50%;
+    }
+}

@@ -1,0 +1,14 @@
+.Wrapper {
+    display: grid;
+    grid-template-columns: 40vw 50vw
+}
+
+.Image img {
+    width: 30vw;
+    margin: 3vw
+}
+
+.Price {
+    margin-top: 2vh;
+    text-align: center;
+}

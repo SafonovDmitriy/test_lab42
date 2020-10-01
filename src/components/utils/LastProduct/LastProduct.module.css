@@ -1,0 +1,21 @@
+.SlideWrapper {
+    display: grid;
+    /* grid-template-columns: 20vw 20vw 20vw 20vw; */
+    margin: 0 auto;
+    border: solid 2px black;
+}
+
+.lastProduct {
+    
+     display: grid;
+    width: 20vw;
+    text-align: center;
+}
+
+.lastProduct img {
+    margin: 1vh auto 0px auto;
+}
+
+.lastProduct p {
+    margin: 0
+}

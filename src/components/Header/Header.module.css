@@ -1,0 +1,44 @@
+.Wrapper {
+    background-color: #122538;
+    color: white;
+}
+
+.topHeader {
+    padding-top: 0.7vw;
+    padding-bottom: 1.5vh;
+}
+
+
+
+.Title {}
+
+.btn-secondary  {
+    background-color: red;
+}
+
+.topHeader a {
+    /* color: red; */
+}
+
+.Search {}
+
+.SliderWrapper {}
+
+.SliderWrapper h3 {}
+
+.Slider {}
+
+.mining {
+    display: grid;
+    grid-template-areas: "min max"
+}
+
+.min {
+    grid-area: "min";
+    text-align: left;
+}
+
+.max {
+    grid-area: "max";
+    text-align: right
+}
