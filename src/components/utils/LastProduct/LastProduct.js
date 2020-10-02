@@ -1,39 +1,47 @@
 import React from 'react';
 import s from './LastProduct.module.css'
 import { Link } from 'react-router-dom';
-import TinySliderWrapper from "tiny-slider-react-wrapper";
-
+import { Container, Row, Col } from 'react-bootstrap';
+import TinySlider from "tiny-slider-react";
 
 const LastProduct = (props) => {
     const settings = {
         lazyload: true,
-        nav: true,
-        mouseDrag: true,
-        controls: false,
-        items: 3,
-        center: true,
+        items: 4,
     }
+
     return (
-        <>
+        <Container className={s.lastWrapper}>
             <h1>Last Products</h1>
-            <TinySliderWrapper settings={settings} className={s.SlideWrapper} >
+            <Row>
+                <TinySlider settings={settings}  >
+                    {props.lastProduct.map((item, index) => {
+                        let categor = item.Category.replace(/ /g, '_')
+                        let title = item.title.replace(/ /g, '_')
+                        return <>
+                            <Link key={index} to={`/Home/${categor}/${title}`} >
+                                <Col className={s.lastProduct}>
 
+                                    <img alt={item.title} src={item.photo[0]} />
+                                    <span>{item.title}</span>
+                                </Col>
 
-                {props.lastProduct.length === 0 ? <> 123 </> :
+                            </Link>
 
-                    props.lastProduct.map(item => {
-                        let categor = item.Category.replace(' ', '_')
-                        let title = item.title.replace(' ', '_')
-                        return <Link to={`/Home/${categor}/${title}`} >
-                            <div className={s.lastProduct}>
-                                <img alt={item.title} src={item.photo[0]} />
-                                <p>{item.title}</p>
-                            </div>
-                        </Link>
+                        </>
+
                     })}
-            </TinySliderWrapper>
 
-        </>
+
+                </TinySlider>
+            </Row>
+
+
+
+
+
+
+        </Container>
     )
 
 

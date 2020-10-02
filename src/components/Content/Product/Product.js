@@ -2,9 +2,10 @@ import React from 'react';
 import s from './Product.module.css'
 import { Link } from "react-router-dom";
 import StarContaner from './../../utils/Star/Star.Container';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const delSpace = (stringItem = '') => {
-    return stringItem.replace(" ", "_")
+    return stringItem.replace(/ /g, `_`)
 }
 export const productURL = (item, categories, defaultURL, ) => {
 
@@ -33,22 +34,33 @@ export const productURL = (item, categories, defaultURL, ) => {
 const Product = (props) => {
     return (
 
-        <div className={s.Product}>
-            <img className={s.imgProduct} alt={props.item.Photo[0]} src={props.item.Photo[0]} />
-            <p className={s.Title}>
-                {productURL(props.item, props.categories, '/Home/')}
-            </p>
-            <p className={s.Category}>
-                {productURL(props.item, props.categories, '/Category/')}
+        <Container className={s.Product}>
+            <Row>
+                <Col className={s.productField}>
+                    <img className={s.imgProduct} alt={props.item.Title} src={props.item.Photo[0]} />
+                </Col>
+                <Col className={s.productField}>
+                    <p className={s.Title}>
+                        {productURL(props.item, props.categories, '/Home/')}
+                    </p>
+                </Col>
+                <Col className={s.productField}>
+                    <p className={s.Category}>
+                        {productURL(props.item, props.categories, '/Category/')}
 
-            </p>
-            <p className={s.Price}>{props.item.Price + ' $'}</p>
-            <StarContaner className={s.Star} idProduct={props.item.id} />
+                    </p>
+                </Col>
+                <Col className={s.productField}>
+                    <p className={s.Price}>{props.item.Price + ' $'}</p>
+                </Col>
+                <Col className={s.productField}>
+                    <StarContaner className={s.Star} idProduct={props.item.id} />
+                </Col>
+
+            </Row>
 
 
-
-
-        </div >
+        </Container >
     )
 }
 

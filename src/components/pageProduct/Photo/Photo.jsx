@@ -1,6 +1,7 @@
 
 import $ from "jquery";
 import React from 'react';
+import { Row } from 'react-bootstrap';
 import { findDOMNode } from 'react-dom';
 import s from './Photo.module.css';
 
@@ -48,24 +49,28 @@ class Photo extends React.Component {
       last: s.Navi + " " + s.Last,
       next: s.Navi + " " + s.Next
     }
-    return <div>
-      <div>
-        <img alt='123' ref='image' className={s.Photo} src={this.state.src} />
+    return <>
+      
+        <Row >
+          <div className={s.Wrapper}>
+            <img alt='123' ref='image' className={s.Photo} src={this.state.src} />
+            <button className={classes.last} onClick={() => this.valid(this.state.n - 1)}>Last </button>
+            <button className={classes.next} onClick={() => this.valid(this.state.n + 1)}>Next</button>
+          </div>
+        </Row>
+      
+        <Row className={s.mini}>
+          {this.props.photo.map(photo => {
+            if (this.state.src === photo) {
+              return <img alt='' src={photo} onClick={() => { this.getID(photo) }} />
+            } else {
+              return <img alt='' src={photo} onClick={() => { this.getID(photo) }} className={s.diactivated} />
+            }
+          })}
+        </Row>
+    
+    </>
 
-        <button className={classes.last} onClick={() => this.valid(this.state.n - 1)}>Last </button>
-        <button className={classes.next} onClick={() => this.valid(this.state.n + 1)}>Next</button>
-      </div>
-      <div className={s.mini}>
-        {this.props.photo.map(photo => {
-          if (this.state.src === photo) {
-            return <img alt='' src={photo} onClick={() => { this.getID(photo) }} />
-          } else {
-            return <img alt='' src={photo} onClick={() => { this.getID(photo) }} className={s.diactivated} />
-          }
-        })}
-      </div>
-
-    </div >;
   }
 };
 

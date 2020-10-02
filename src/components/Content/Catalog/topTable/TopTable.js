@@ -1,15 +1,18 @@
 import React from 'react';
 import s from './topTable.module.css';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const topTable = () => {
     return (
-        <div className={s.AboutProduct}>
-            <p>Photo</p>
-            <p>Title</p>
-            <p>Category</p>
-            <p>Price</p>
-            <p>Subscribe</p>
-        </div>
+        <Container className={s.AboutProduct}>
+            <Row>
+                <Col><p>Photo</p></Col>
+                <Col><p>Title</p></Col>
+                <Col><p>Category</p></Col>
+                <Col><p>Price</p></Col>
+                <Col><p>Subscribe</p></Col>
+            </Row>
+        </Container>
     )
 
 }

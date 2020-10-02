@@ -14,8 +14,8 @@ const Catalog = (props) => {
                         <p className={s.notFound}>Product not found</p>
                         :
                         props.listProduct.map((item) => {
-
-                            return item.Price >= props.priceFilter.min && item.Price <= props.priceFilter.max && <ProductContainer item={item} />
+                            return props.priceFilters.max !== 0 ?
+                                item.Price >= props.priceFilters.min && item.Price <= props.priceFilters.max && <ProductContainer item={item} /> : <ProductContainer item={item} />
 
                         })
 
@@ -23,7 +23,7 @@ const Catalog = (props) => {
 
                     :
                     props.SearchArr.map((item) => {
-                        return item.Price >= props.priceFilter.min && item.Price <= props.priceFilter.max && <ProductContainer item={item} />
+                        return props.priceFilters.max !== 0 ? item.Price >= props.priceFilters.min && item.Price <= props.priceFilters.max && <ProductContainer item={item} /> : <ProductContainer item={item} />
                     })
 
                 }

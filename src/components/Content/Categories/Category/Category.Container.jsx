@@ -11,7 +11,7 @@ let mapStateToProps = (state) => {
     return {
         listProduct: state.Home.product,
         categories: state.Home.categories,
-        priceFilter: state.Home.priceFilter
+        priceFilter: state.Home.newPriceFilter
     }
 }
 

@@ -8,7 +8,7 @@ const Category = ({ listProduct, categories, match, ...props }) => {
     console.log(listProduct)
     let idCategory
     categories.map(cat => {
-        if (cat.Title === match.params.Title.replace("_", " ")) {
+        if (cat.Title === match.params.Title.replace(/_/g, " ")) {
             return idCategory = cat.id
         }
         return undefined
@@ -24,7 +24,7 @@ const Category = ({ listProduct, categories, match, ...props }) => {
                     return prod.Category.map(Categor => {
 
                         if (Categor === idCategory) {
-                            return prod.Price >= props.priceFilter.min && prod.Price <= props.priceFilter.max && <ProductContainer item={prod} />
+                            return props.priceFilter.max !== 0 ? prod.Price >= props.priceFilter.min && prod.Price <= props.priceFilter.max && <ProductContainer item={prod} /> : <ProductContainer item={prod} />
                         }
                         return undefined
                     })

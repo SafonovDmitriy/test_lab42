@@ -1,44 +1,25 @@
 .Wrapper {
     background-color: #122538;
-    color: white;
+    color: white
 }
 
-.topHeader {
-    padding-top: 0.7vw;
-    padding-bottom: 1.5vh;
+.forFilter {
+    text-align: center;
+    /* animation-name: fullWidth; */
+    animation-duration: 2s;
+    /* animation-fill-mode: both; */
 }
 
-
-
-.Title {}
-
-.btn-secondary  {
-    background-color: red;
+hr {
+    margin: 0;
+    background-color: white
 }
 
-.topHeader a {
-    /* color: red; */
-}
-
-.Search {}
-
-.SliderWrapper {}
-
-.SliderWrapper h3 {}
-
-.Slider {}
-
-.mining {
-    display: grid;
-    grid-template-areas: "min max"
-}
-
-.min {
-    grid-area: "min";
-    text-align: left;
-}
-
-.max {
-    grid-area: "max";
-    text-align: right
-}
+/* @keyframes fullWidth {
+    0% {
+        height: 5vh
+    }
+    100%{
+        height: 25vh;
+    }
+} */

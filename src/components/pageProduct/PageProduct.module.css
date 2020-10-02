@@ -1,6 +1,5 @@
 .Wrapper {
-    display: grid;
-    grid-template-columns: 40vw 50vw
+    
 }
 
 .Image img {
@@ -10,5 +9,5 @@
 
 .Price {
     margin-top: 2vh;
-    text-align: center;
+    
 }

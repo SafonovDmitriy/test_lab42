@@ -6,7 +6,7 @@ const Categories = (props) => {
     return (
         <div className={s.Wrapper}>
             {props.categories.map(category => {
-                return <div className={s.Category}><Link to={"/Category/" + category.Title}> {category.Title + ' '} </Link></div>
+                return <div className={s.Category}><Link to={"/Category/" + category.Title.replace(/ /g, "_")}> {category.Title + ' '} </Link></div>
             })}
         </div>
     )

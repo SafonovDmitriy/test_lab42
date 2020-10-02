@@ -1,16 +1,23 @@
+.Wrapper {
+    margin-top: 2vw;
+    position: relative;
+    width: 90%;
+}
+
 .Photo {
-    max-height: 20vh;
-    min-height: 50vh;
+    height: 50vh;
+    width: 100%;
+    position: relative;
 }
 
 .mini {
-    margin-left: 3vw;
+    margin-top: 1vh;
 }
 
 .mini img {
     max-width: 50px;
     max-height: 33px;
-    margin: 5px;
+    margin: 2px 5px;
 }
 
 .diactivated {
@@ -18,12 +25,14 @@
 }
 
 .Navi {
-    position: absolute;
     height: 50vh;
-    width: 7vw;
     background-color: black;
-    opacity: 0%;
+    opacity: 0;
+    position: absolute;
     color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
 }
 
 .Navi:hover {
@@ -33,18 +42,21 @@
 }
 
 .Last {
-    margin: 3vw -33vw;
+    left: 0;
 }
 
 .Next {
-    margin: 3vw -10vw;
+    right: 0;
 }
 
 @keyframes slidein {
-    from {
+    0% {
         opacity: 10%;
     }
-    to {
+    50% {
         opacity: 50%;
+    }
+    100% {
+        opacity: 80%;
     }
 }

@@ -1,7 +1,58 @@
 .SearchInput {
     border: none;
-    width: 40vw;
     border-radius: 5px 0 0 5px;
+    animation-name: smallWidth;
+    animation-duration: 0.2s;
+    animation-fill-mode: both;
+    margin-left: auto;
 }
 
-.subButton {}
+.activeSearch {
+    animation-name: fullWidth;
+    animation-duration: 0.2s;
+    animation-fill-mode: both;
+}
+
+.del {
+    -webkit-clip-path: polygon(16% 0, 3% 10%, 39% 45%, 0 88%, 11% 98%, 48% 56%, 86% 99%, 100% 88%, 61% 44%, 98% 6%, 87% 0, 52% 34%);
+    clip-path: polygon(16% 0, 3% 10%, 39% 45%, 0 88%, 11% 98%, 48% 56%, 86% 99%, 100% 88%, 61% 44%, 98% 6%, 87% 0, 52% 34%);
+    width: 20px;
+    height: 20px;
+    background-color: black;
+}
+
+@keyframes fullWidth {
+    0% {
+        width: 15vw;
+    }
+    25% {
+        width: 18vw;
+    }
+    50% {
+        width: 20vw;
+    }
+    75% {
+        width: 23vw;
+    }
+    100% {
+        width: 25vw;
+    }
+}
+
+@keyframes smallWidth {
+    0% {
+        width: 25vw;
+    }
+    25% {
+        width: 23vw;
+    }
+    50% {
+        width: 20vw;
+    }
+    75% {
+        width: 18vw;
+    }
+    100% {
+        width: 15vw;
+    }
+}

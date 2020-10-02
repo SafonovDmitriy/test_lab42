@@ -20,7 +20,6 @@ const Star = (props) => {
             <defs >
                 <clipPath id="octagon-clip" clipPathUnits="objectBoundingBox">
                     <polygon points="0.5 0, 0.61 0.35, 0.98 0.35, 0.68 0.57, 0.79 0.91, 0.5 0.7, 0.21 0.91, 0.32 0.57,0.02 0.35, 0.39 0.35" />
-                    {/* <polygon onClick={() => props.addFavoriteProduct(props.idProduct)} points="0.5 0, 0.61 0.35, 0.98 0.35, 0.68 0.57, 0.79 0.91, 0.5 0.7, 0.21 0.91, 0.32 0.57,0.02 0.35, 0.39 0.35" /> */}
                 </clipPath>
             </defs>
         </svg>

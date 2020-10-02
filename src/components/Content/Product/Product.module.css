@@ -1,23 +1,25 @@
 .AboutProduct, .Product {
-    display: grid;
-    grid-template-columns: 25vw 25vw 25vw 10vw 5vw;
+    
+   
     text-align: center;
 }
-
+.productField{
+    margin: auto 0;
+}
 .Product {
     font-weight: 500;
     border: solid 1px black;
-    margin: 0 auto 1vw auto;
-    width: 90vw;
+    /* width: 90vw; */
+    margin: 1vw 0;
+    padding: 0.5vw 0
     
 }
 .imgProduct{
     height: 20vh;
-    margin: 1vw 2vw
+    margin: 0 auto 
 }
 .AboutProduct {
-    display: grid;
-    grid-template-columns: 25vw 25vw 25vw 25vw;
+    
     text-align: center;
     font-size: 18px;
     font-weight: bolder;

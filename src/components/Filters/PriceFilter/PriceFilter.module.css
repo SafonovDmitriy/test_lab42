@@ -1,0 +1,14 @@
+.mining {
+    display: grid;
+    grid-template-areas: "min max"
+}
+
+.min {
+    grid-area: "min";
+    text-align: left;
+}
+
+.max {
+    grid-area: "max";
+    text-align: right
+}

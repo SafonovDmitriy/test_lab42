@@ -180,7 +180,8 @@ const initialState = {
     SearchText: undefined,
     selectProduct: {},
     lastProduct: [],
-    priceFilter: { min: 0, max: 0 },
+    priceFilters: { min: 0, max: 0 },
+    newPriceFilter: { min: 0, max: 0 },
     favoritesProduct: [1, 3, 4, 9]
 }
 const HomeReduser = (state = initialState, active) => {
@@ -211,7 +212,10 @@ const HomeReduser = (state = initialState, active) => {
             })
             return { ...state, selectProduct: product }
         }
-        case 'PRICE-FILTER': return { ...state, priceFilter: active.priceFilter }
+        case 'PRICE-FILTER':
+            return { ...state, priceFilters: active.priceFilters, newPriceFilter: active.priceFilters }
+        case 'NEW-PRICE-FILTER':
+            return { ...state, newPriceFilter: active.newPriceFilter }
         case 'ADD-FAVORITE-PRODUCT':
 
             state.favoritesProduct.push(active.idProduct)
@@ -237,7 +241,8 @@ const HomeReduser = (state = initialState, active) => {
 }
 export const searchSave = (SearchArr, SearchText) => ({ type: 'SEARCH', SearchArr, SearchText })
 export const saveProduct = (titleProduct) => ({ type: 'SAVE_PRODUCT', titleProduct })
-export const priceFilter = (priceFilter) => ({ type: 'PRICE-FILTER', priceFilter })
+export const priceFilter = (priceFilters) => ({ type: 'PRICE-FILTER', priceFilters })
+export const newPriceFilter = (newPriceFilter) => ({ type: 'NEW-PRICE-FILTER', newPriceFilter })
 export const addFavoriteProduct = (idProduct) => ({ type: 'ADD-FAVORITE-PRODUCT', idProduct })
 export const delFavoriteProduct = (idProduct) => ({ type: 'DEL-FAVORITE-PRODUCT', idProduct })
 export default HomeReduser

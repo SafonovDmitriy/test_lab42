@@ -18,8 +18,10 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-slick": "^0.27.11",
+    "react-transition-group": "^4.4.1",
     "redux": "^4.0.5",
     "redux-form": "^8.3.6",
+    "tiny-slider-react": "^0.5.3",
     "tiny-slider-react-wrapper": "^0.4.3"
   },
   "scripts": {

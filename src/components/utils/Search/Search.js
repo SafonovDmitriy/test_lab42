@@ -1,5 +1,5 @@
-import React from 'react';
-import { Button, Container, InputGroup, Row } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Button, InputGroup } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Field, reduxForm, reset } from 'redux-form';
@@ -12,14 +12,15 @@ const Search = (props) => {
         if (formDate.search !== undefined) {
             let arr = []
             props.listProduct.filter(prod => {
-                for (var key in prod) {
-                    if (prod[key].toString().toUpperCase().indexOf(formDate.search.toUpperCase()) > -1) {
-                        return arr.push(prod)
-                    }
+
+                if (prod.Title.toString().toUpperCase().indexOf(formDate.search.toUpperCase()) > -1) {
+                    return arr.push(prod)
                 }
+
                 return undefined
             })
             props.history.push('/Home');
+
             props.Search(arr, formDate.search)
         }
 
@@ -32,27 +33,23 @@ const Search = (props) => {
 
 let SearchForm = props => {
     const { handleSubmit } = props
+    let [toggleSearch, setToggleSearch] = useState(false)
     const clearField = () => {
         props.dispatch(reset("search"));
         props.Search([], undefined)
     }
     return (
+
         <form onSubmit={handleSubmit}>
-
-            <Container>
-                <Row>
-                    <InputGroup className="mb-3">
-                        <Field name="search" placeholder='Search' component="input" type="text" className={s.SearchInput} />
-
-                        <InputGroup.Append>
-                            <Button type="button" onClick={() => clearField()} className={s.subButton} variant="light">Del</Button>
-                            <Button type="submit" className={s.subButton} variant="warning">Search</Button>
-                        </InputGroup.Append>
-                    </InputGroup>
-
-
-                </Row>
-            </Container>
+            <InputGroup>
+                <InputGroup.Append>
+                    <Field className={toggleSearch ? s.activeSearch + ' ' + s.SearchInput : s.SearchInput} name="search" placeholder='Search' component="input" type="text" onBlur={() => setToggleSearch(false)} onFocus={() => setToggleSearch(true)} />
+                    <Button type="button" onClick={() => clearField()} variant="light">
+                        <div className={s.del}></div>
+                    </Button>
+                    <Button type="submit" variant="warning">Search</Button>
+                </InputGroup.Append>
+            </InputGroup>
         </form>
     )
 }

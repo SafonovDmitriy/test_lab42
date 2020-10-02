@@ -14,7 +14,7 @@ let mapStateToProps = (state) => {
         categories: state.Home.categories,
         SearchArr: state.Home.SearchArr,
         SearchText: state.Home.SearchText,
-        priceFilter: state.Home.priceFilter,
+        priceFilters: state.Home.newPriceFilter,
     }
 }
 
