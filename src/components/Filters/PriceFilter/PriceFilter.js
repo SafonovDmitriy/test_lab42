@@ -4,8 +4,7 @@ import s from './PriceFilter.module.css'
 
 const PriceFilter = (props) => {
 
-    const [count, setCount] = useState({ ...props.priceFilters })
-
+    const [count, setCount] = useState({ ...props.newPriceFilters })
     const saveValue = (value) => {
         setCount({ min: value[0], max: value[1] })
         props.newPriceFilter(count)

@@ -12,9 +12,9 @@ let mapStateToProps = (state) => {
     return {
         listProduct: state.Home.product,
         categories: state.Home.categories,
-        SearchArr: state.Home.SearchArr,
         SearchText: state.Home.SearchText,
-        priceFilters: state.Home.newPriceFilter,
+        priceFilters: state.Home.newPriceFilters,
+        categoryFilter:state.Home.categoryFilter,
     }
 }
 

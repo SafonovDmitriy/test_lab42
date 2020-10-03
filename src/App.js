@@ -10,6 +10,8 @@ import FavoritesContainer from './components/Favorites/Favorites.Contaiter';
 import HeaderContainer from './components/Header/Header.Container';
 import PageProductsContainer from './components/pageProduct/PageProduct.Container';
 function App() {
+
+ 
   return (
 
     <div >

@@ -1,18 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Header from './Header';
+import { updateState } from '../../Redux/Reducers/Home';
 
 const HeaderContainer = (props) => {
-   
-  
+    let favoritesProduct = localStorage.getItem('favoritesProduct')
+    let lastProduct = localStorage.getItem('lastProduct')
+    props.updateState(JSON.parse(favoritesProduct), JSON.parse(lastProduct))
     return (
-        <Header {...props}  />
+        <Header {...props} />
     )
 }
 let mapStateToProps = (state) => {
+    return {}
+}
+let mapDispatchToProps = dispatch => {
     return {
-        product: state.Home.product
+        updateState: (newFavoritesProduct, lastProduct) => dispatch(updateState(newFavoritesProduct, lastProduct)),
     }
 }
 
-export default connect(mapStateToProps)(HeaderContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderContainer)

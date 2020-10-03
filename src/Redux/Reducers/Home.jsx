@@ -176,17 +176,17 @@ const initialState = {
         // { id: 13, Title: '', Category: [], Price: 154, Photo: '' },
         // { id: 14, Title: '', Category: [], Price: 154, Photo: '' },
     ],
-    SearchArr: [],
     SearchText: undefined,
     selectProduct: {},
     lastProduct: [],
     priceFilters: { min: 0, max: 0 },
-    newPriceFilter: { min: 0, max: 0 },
-    favoritesProduct: [1, 3, 4, 9]
+    newPriceFilters: { min: 0, max: 0 },
+    favoritesProduct: [],
+    categoryFilter: []
 }
 const HomeReduser = (state = initialState, active) => {
     switch (active.type) {
-        case 'SEARCH': return active.SearchArr !== [] ? { ...state, SearchArr: active.SearchArr, SearchText: active.SearchText } : { ...state, SearchText: undefined };
+        case 'SEARCH': return { ...state, SearchText: active.SearchText };
         case 'SAVE_PRODUCT': {
             let product
             state.product.map(prod => {
@@ -203,6 +203,8 @@ const HomeReduser = (state = initialState, active) => {
                             state.lastProduct.splice(0, 1)
                         }
                         state.lastProduct.push({ id: prod.id, title: prod.Title, photo: prod.Photo, price: prod.Price, Category: state.categories[prod.Category[0]].Title })
+                        let JSON_lastProductAdd = JSON.stringify(state.lastProduct)
+                        localStorage.setItem('lastProduct', JSON_lastProductAdd)
                     }
                     product = prod
                 }
@@ -213,25 +215,34 @@ const HomeReduser = (state = initialState, active) => {
             return { ...state, selectProduct: product }
         }
         case 'PRICE-FILTER':
-            return { ...state, priceFilters: active.priceFilters, newPriceFilter: active.priceFilters }
+            return { ...state, priceFilters: active.priceFilters, newPriceFilters: active.priceFilters }
         case 'NEW-PRICE-FILTER':
-            return { ...state, newPriceFilter: active.newPriceFilter }
+            return { ...state, newPriceFilters: active.newPriceFilter }
         case 'ADD-FAVORITE-PRODUCT':
-
             state.favoritesProduct.push(active.idProduct)
+            let JSON_favoritesProductAdd = JSON.stringify(state.favoritesProduct)
+            localStorage.setItem('favoritesProduct', JSON_favoritesProductAdd)
+
             return { ...state, favoritesProduct: [...state.favoritesProduct] }
+
         case 'DEL-FAVORITE-PRODUCT':
             for (var i = 0; i < state.favoritesProduct.length; i++) {
                 if (state.favoritesProduct[i] === active.idProduct) {
                     state.favoritesProduct.splice(i, 1)
                 }
             }
+            let JSON_favoritesProductDel = JSON.stringify(state.favoritesProduct)
+            localStorage.setItem('favoritesProduct', JSON_favoritesProductDel)
             return {
                 ...state,
                 favoritesProduct: [...state.favoritesProduct]
             }
 
+        case 'LIST-CATEGORY-FILTER':
 
+            return { ...state, categoryFilter: active.arrSelectCategory }
+        case 'UPDATE-STATE':
+            return { ...state, favoritesProduct: active.newFavoritesProduct, lastProduct: active.lastProduct }
 
 
 
@@ -239,10 +250,12 @@ const HomeReduser = (state = initialState, active) => {
         default: return { ...state }
     }
 }
-export const searchSave = (SearchArr, SearchText) => ({ type: 'SEARCH', SearchArr, SearchText })
+export const searchSave = (SearchText) => ({ type: 'SEARCH', SearchText })
 export const saveProduct = (titleProduct) => ({ type: 'SAVE_PRODUCT', titleProduct })
 export const priceFilter = (priceFilters) => ({ type: 'PRICE-FILTER', priceFilters })
 export const newPriceFilter = (newPriceFilter) => ({ type: 'NEW-PRICE-FILTER', newPriceFilter })
 export const addFavoriteProduct = (idProduct) => ({ type: 'ADD-FAVORITE-PRODUCT', idProduct })
 export const delFavoriteProduct = (idProduct) => ({ type: 'DEL-FAVORITE-PRODUCT', idProduct })
+export const listCategoryFilter = (arrSelectCategory) => ({ type: 'LIST-CATEGORY-FILTER', arrSelectCategory })
+export const updateState = (newFavoritesProduct, lastProduct) => ({ type: 'UPDATE-STATE', newFavoritesProduct, lastProduct })
 export default HomeReduser

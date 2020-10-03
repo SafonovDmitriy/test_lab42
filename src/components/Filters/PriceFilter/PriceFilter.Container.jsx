@@ -12,22 +12,24 @@ const PriceFilterContainer = (props) => {
             max: CountArr.reduce((x, y) => x > y ? x : y)
         }
     }
-
     props.priceFilters.max === 0 && props.priceFilter(getCount())
-    return props.priceFilters.max !== 0 && <PriceFilter priceFilters={props.priceFilters} newPriceFilter={props.newPriceFilter} /> 
+
+
+    return props.priceFilters.max !== 0 && <PriceFilter {...props} />
 
 
 }
 let mapStateToProps = (state) => {
     return {
         product: state.Home.product,
-        priceFilters: state.Home.priceFilters
+        priceFilters: state.Home.priceFilters,
+        newPriceFilters: state.Home.newPriceFilters,
     }
 }
 let mapDispatchToProps = (dispatch) => {
     return {
         priceFilter: price => dispatch(priceFilter(price)),
-        newPriceFilter: price => dispatch(newPriceFilter(price))
+        newPriceFilter: price => dispatch(newPriceFilter(price)),
 
     }
 }

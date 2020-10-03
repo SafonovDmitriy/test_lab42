@@ -5,10 +5,12 @@ import { Link } from 'react-router-dom';
 import PriceFilterContainer from './../Filters/PriceFilter/PriceFilter.Container';
 import Search from './../utils/Search/Search';
 import s from './Header.module.css';
+import CategoryFilterContainer from './../Filters/CategoryFilter/CategiryFilter.Container';
 
 
 
 const Header = (props) => {
+
     const [radioValue, setRadioValue] = useState('1');
     let [toogleFilter, setToggleFilter] = useState(false);
     const radios = [
@@ -39,9 +41,11 @@ const Header = (props) => {
         return toogleFilter ? <>
             <Row>
                 <Col><PriceFilterContainer /></Col>
-                <Col></Col>
+                <Col><CategoryFilterContainer /></Col>
             </Row>
-
+            <Row>
+                <Button onClick={() => { }} variant="secondary">Clear all filters</Button>
+            </Row>
 
             <div onClick={() => setToggleFilter(false)}>
                 <hr />

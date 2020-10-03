@@ -1,6 +1,6 @@
-.Wrapper {}
-
 .Category {
-    text-align: center;
-    padding: 1.5vw 0;
+    position: absolute;
+    left: 45vw;
+   
 }
+.Category a{padding: 0.2vw 0;}

@@ -1,7 +1,6 @@
 import React from 'react';
 import Categories from './Categories';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 
 const CategoriesContainer = (props) => {
     return (
@@ -10,7 +9,7 @@ const CategoriesContainer = (props) => {
 }
 let mapStateToProps = (state) => {
     return {
-        categories: state.Home.categories
+        categories: state.Home.categories,
     }
 }
-export default connect(mapStateToProps)(withRouter(CategoriesContainer))
+export default connect(mapStateToProps)(CategoriesContainer)

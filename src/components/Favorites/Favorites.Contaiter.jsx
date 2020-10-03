@@ -1,27 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { filterToFevorites } from '../Filters/Filter';
 import Favorites from './Favorites';
+import { filterToSearch, filterToMultiCategory } from './../Filters/Filter';
 
-const FavoritesContainer = ({ categories, favoritesProduct, listProduct, ...props }) => {
-
-
-    let listFavorProduct = []
-
-    listProduct.map((product) => {
-        return favoritesProduct.map(favor => {
-            if (favor === product.id) {
-                return listFavorProduct.push(product)
-            }
-            return undefined
-        })
-    })
-    return <Favorites listFavorProduct={listFavorProduct} />
+const FavoritesContainer = ({ favoritesProduct, listProduct, ...props }) => {
+    let showProduct=filterToFevorites(listProduct,favoritesProduct)
+    showProduct=filterToSearch(showProduct,props.SearchText)
+    showProduct=filterToMultiCategory(showProduct,props.categoryFilter)
+    return <Favorites listFavorProduct={showProduct} />
 }
 let mapStateToProps = (state) => {
     return {
         favoritesProduct: state.Home.favoritesProduct,
         listProduct: state.Home.product,
-        categories: state.Home.categories
+        priceFilters: state.Home.newPriceFilters,
+        SearchText: state.Home.SearchText,
+        categoryFilter:state.Home.categoryFilter,
     }
 
 }
