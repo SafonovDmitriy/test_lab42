@@ -2,6 +2,7 @@ import React from 'react';
 import { Row } from 'react-bootstrap';
 import ProductContainer from './../Content/Product/Product.Container';
 import topTable from './../Content/Catalog/topTable/TopTable';
+import NotFound from './../utils/NotFound/NotFound';
 
 const Favorites = (props) => {
     const showListProduct = () => {
@@ -13,7 +14,7 @@ const Favorites = (props) => {
     return <>
         {
             props.listFavorProduct.length !== 0 ? <><Row>{topTable()}</Row><Row>{showListProduct()}</Row></> :
-                <Row><h1 >Favorit product not found</h1></Row>
+                <Row><NotFound /></Row>
         }</>
 
 

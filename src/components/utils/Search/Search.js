@@ -10,7 +10,31 @@ const Search = (props) => {
         if (formDate.search === undefined) {
             return props.Search(undefined)
         } else {
-            props.Search(formDate.search)
+            let text = formDate.search.split('')
+
+            for (let i = 0; i <= text.length; i++) {
+                if (text[i]) {
+
+                }
+                if (text[0] === " ") {
+                    text.shift()
+                }
+                if (text[text.length - 1] === " ") {
+                    text.pop()
+                }
+            }
+            if (text.length !== 0) {
+                let newSearch = [text[0]]
+                text.reduce((first, second) => {
+                    if (first[first.length - 1] !== " " || second !== " ") {
+                        newSearch.push(second)
+                    }
+                    return first + second
+                })
+                props.Search(newSearch.join(''))
+            }
+
+
         }
     }
     return <SearchForm onSubmit={onSubmit} {...props} />

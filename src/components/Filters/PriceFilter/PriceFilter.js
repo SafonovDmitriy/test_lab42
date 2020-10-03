@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
 import { Range } from 'rc-slider';
-import s from './PriceFilter.module.css'
+import React from 'react';
+import s from './PriceFilter.module.css';
 
 const PriceFilter = (props) => {
 
-    const [count, setCount] = useState({ ...props.newPriceFilters })
     const saveValue = (value) => {
-        setCount({ min: value[0], max: value[1] })
-        props.newPriceFilter(count)
-
+        props.newPriceFilter({ min: value[0], max: value[1] })
     }
     return (
         <div className={s.SliderWrapper}>
@@ -16,13 +13,14 @@ const PriceFilter = (props) => {
             <Range
                 className={s.Slider}
                 pushable={true}
-                defaultValue={[count.min, count.max]}
+                defaultValue={[props.newPriceFilters.min, props.newPriceFilters.max]}
                 max={props.priceFilters.max}
+                values={[props.newPriceFilters]}
                 onChange={(value) => saveValue(value)} />
 
             <div className={s.mining}>
-                <div className={s.min}>{count.min}</div>
-                <div className={s.max}>{count.max}</div>
+                <div className={s.min}>{props.newPriceFilters.min}</div>
+                <div className={s.max}>{props.newPriceFilters.max}</div>
             </div>
         </div>
     )

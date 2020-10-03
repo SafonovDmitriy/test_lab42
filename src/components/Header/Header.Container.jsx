@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Header from './Header';
 import { updateState } from '../../Redux/Reducers/Home';
+import { filterClear } from './../../Redux/Reducers/Home';
 
 const HeaderContainer = (props) => {
     let favoritesProduct = localStorage.getItem('favoritesProduct')
@@ -17,6 +18,7 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = dispatch => {
     return {
         updateState: (newFavoritesProduct, lastProduct) => dispatch(updateState(newFavoritesProduct, lastProduct)),
+        filterClear: () => dispatch(filterClear())
     }
 }
 

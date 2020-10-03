@@ -2,10 +2,10 @@ import 'rc-slider/assets/index.css';
 import React, { useState } from 'react';
 import { Button, ButtonGroup, Col, Container, Nav, Navbar, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import CategoryFilterContainer from './../Filters/CategoryFilter/CategiryFilter.Container';
 import PriceFilterContainer from './../Filters/PriceFilter/PriceFilter.Container';
 import Search from './../utils/Search/Search';
 import s from './Header.module.css';
-import CategoryFilterContainer from './../Filters/CategoryFilter/CategiryFilter.Container';
 
 
 
@@ -44,7 +44,7 @@ const Header = (props) => {
                 <Col><CategoryFilterContainer /></Col>
             </Row>
             <Row>
-                <Button onClick={() => { }} variant="secondary">Clear all filters</Button>
+                <Button className={s.Clear} onClick={() => props.filterClear()} variant="secondary">Clear all filters</Button>
             </Row>
 
             <div onClick={() => setToggleFilter(false)}>

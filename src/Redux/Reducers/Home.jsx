@@ -243,6 +243,8 @@ const HomeReduser = (state = initialState, active) => {
             return { ...state, categoryFilter: active.arrSelectCategory }
         case 'UPDATE-STATE':
             return { ...state, favoritesProduct: active.newFavoritesProduct, lastProduct: active.lastProduct }
+        case 'FILTER-CLEAR':
+            return { ...state, newPriceFilters: state.priceFilters, categoryFilter: [] }
 
 
 
@@ -257,5 +259,6 @@ export const newPriceFilter = (newPriceFilter) => ({ type: 'NEW-PRICE-FILTER', n
 export const addFavoriteProduct = (idProduct) => ({ type: 'ADD-FAVORITE-PRODUCT', idProduct })
 export const delFavoriteProduct = (idProduct) => ({ type: 'DEL-FAVORITE-PRODUCT', idProduct })
 export const listCategoryFilter = (arrSelectCategory) => ({ type: 'LIST-CATEGORY-FILTER', arrSelectCategory })
+export const filterClear = () => ({ type: 'FILTER-CLEAR' })
 export const updateState = (newFavoritesProduct, lastProduct) => ({ type: 'UPDATE-STATE', newFavoritesProduct, lastProduct })
 export default HomeReduser

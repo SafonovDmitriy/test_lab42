@@ -2,6 +2,8 @@ import React from 'react';
 import topTable from './../../Catalog/topTable/TopTable';
 import ProductContainer from './../../Product/Product.Container';
 import { filterToPrice, filterToCategory, filterToSearch } from './../../../Filters/Filter';
+import { Row } from 'react-bootstrap';
+import NotFound from './../../../utils/NotFound/NotFound';
 
 
 
@@ -12,7 +14,7 @@ const Category = ({ listProduct, categories, match, ...props }) => {
     return (
         <div>
             {topTable()}
-            {showProduct.map(product => <ProductContainer item={product} />)}
+            {showProduct.length !== 0 ? showProduct.map(product => <ProductContainer item={product} />) : <Row><NotFound /></Row>}
         </div>
     )
 }
