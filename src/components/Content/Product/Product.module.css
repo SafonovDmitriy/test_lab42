@@ -1,29 +1,29 @@
 .AboutProduct, .Product {
-    
-   
     text-align: center;
 }
-.productField{
+
+.productField {
     margin: auto 0;
 }
+
 .Product {
     font-weight: 500;
     border: solid 1px black;
-    /* width: 90vw; */
     margin: 1vw 0;
     padding: 0.5vw 0
-    
 }
-.imgProduct{
+
+.imgProduct {
     height: 20vh;
-    margin: 0 auto 
+    margin: 0 auto
 }
+
 .AboutProduct {
-    
     text-align: center;
     font-size: 18px;
     font-weight: bolder;
 }
-.Title,.Category,.Price,.Star{
+
+.Title, .Category, .Price, .Star {
     margin: auto 0;
 }

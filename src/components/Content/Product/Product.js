@@ -19,21 +19,15 @@ export const productURL = (item, categories, defaultURL, ) => {
         })
 
     })
-    if (defaultURL === '/Home/') {
-        return <Link to={`${defaultURL}${delSpace(arr[0])}/${delSpace(item.Title)}`}>{item.Title}</Link>
+    switch (defaultURL) {
+        case '/Home/': return <Link to={`${defaultURL}${delSpace(arr[0])}/${delSpace(item.Title)}`}>{item.Title}</Link>
+        case '/Category/': return arr.map(categor => { return <Link to={`${defaultURL}${delSpace(categor)}`}>{categor}</Link> })
+        case '/Favorites/': return <></>
+        default: return <></>
     }
-    if (defaultURL === '/Category/') {
-        return arr.map(categor => { return <Link to={`${defaultURL}${delSpace(categor)}`}>{categor}</Link> })
-    }
-    if (defaultURL === '/Favorites/') {
-        return <></>
-    }
-
-
 }
 const Product = (props) => {
     return (
-
         <Container className={s.Product}>
             <Row>
                 <Col className={s.productField}>
@@ -51,15 +45,12 @@ const Product = (props) => {
                     </p>
                 </Col>
                 <Col className={s.productField}>
-                    <p className={s.Price}>{props.item.Price + ' $'}</p>
+                    <p className={s.Price}>{`Price: ${props.item.Price} $`}</p>
                 </Col>
                 <Col className={s.productField}>
                     <StarContaner className={s.Star} idProduct={props.item.id} />
                 </Col>
-
             </Row>
-
-
         </Container >
     )
 }

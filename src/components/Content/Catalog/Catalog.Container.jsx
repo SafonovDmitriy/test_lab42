@@ -11,10 +11,9 @@ const CatalogContainer = (props) => {
 let mapStateToProps = (state) => {
     return {
         listProduct: state.Home.product,
-        categories: state.Home.categories,
         SearchText: state.Home.SearchText,
         priceFilters: state.Home.newPriceFilters,
-        categoryFilter:state.Home.categoryFilter,
+        categoryFilter: state.Home.categoryFilter,
     }
 }
 

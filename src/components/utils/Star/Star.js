@@ -10,10 +10,10 @@ const Star = (props) => {
         }
 
     })
-    let classNames = boolStar === false ? s.clipEach + ' ' + s.borderStyleThin : s.active + ' ' + s.borderStyleThin
+
     return <div >
         <div className={s.clipWrap}>
-            <div onClick={boolStar === true ? () => props.delFavoriteProduct(props.idProduct) : () => props.addFavoriteProduct(props.idProduct)} className={classNames}>
+            <div onClick={boolStar === true ? () => props.delFavoriteProduct(props.idProduct) : () => props.addFavoriteProduct(props.idProduct)} className={boolStar === false ? s.clipEach + ' ' + s.borderStyleThin : s.active + ' ' + s.borderStyleThin}>
             </div>
         </div>
         <svg className={s.clipSvg} >

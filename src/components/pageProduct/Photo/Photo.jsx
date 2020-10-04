@@ -26,13 +26,10 @@ class Photo extends React.Component {
     }
   }
   getID = (srcImage) => {
-    let counter = 0
-    this.props.photo.map(item => {
+    this.props.photo.map((item,idx) => {
       if (item === srcImage) {
-        this.handleSlider(srcImage, counter)
-      } else {
-        counter++;
-      }
+        this.handleSlider(srcImage, idx)
+      } 
       return undefined
     })
   }

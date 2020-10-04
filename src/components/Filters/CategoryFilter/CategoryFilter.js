@@ -6,7 +6,6 @@ const CategoryFilter = (props) => {
     const onSelect = (selectedList) => {
         props.listCategoryFilter(selectedList)
     }
-
     const onRemove = (selectedList) => {
         props.listCategoryFilter(selectedList)
     }
@@ -22,7 +21,5 @@ const CategoryFilter = (props) => {
             closeIcon='cancel'
         />
     </div>
-
-
 }
 export default CategoryFilter

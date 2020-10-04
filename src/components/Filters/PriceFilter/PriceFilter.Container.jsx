@@ -13,8 +13,6 @@ const PriceFilterContainer = (props) => {
         }
     }
     props.priceFilters.max === 0 && props.priceFilter(getCount())
-
-
     return props.priceFilters.max !== 0 && <PriceFilter {...props} />
 
 

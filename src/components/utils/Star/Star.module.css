@@ -9,7 +9,7 @@
 }
 
 .clipEach, .active {
-  width: 4vw;
+  min-width: 5vh;
   height: 5.5vh;
   position: relative;
 }

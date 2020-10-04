@@ -17,7 +17,6 @@ const PriceFilter = (props) => {
                 max={props.priceFilters.max}
                 values={[props.newPriceFilters]}
                 onChange={(value) => saveValue(value)} />
-
             <div className={s.mining}>
                 <div className={s.min}>{props.newPriceFilters.min}</div>
                 <div className={s.max}>{props.newPriceFilters.max}</div>

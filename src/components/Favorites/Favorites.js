@@ -13,7 +13,7 @@ const Favorites = (props) => {
 
     return <>
         {
-            props.listFavorProduct.length !== 0 ? <><Row>{topTable()}</Row><Row>{showListProduct()}</Row></> :
+            props.listFavorProduct.length !== 0 ? <>{topTable("Favorites")}<Row>{showListProduct()}</Row></> :
                 <Row><NotFound /></Row>
         }</>
 

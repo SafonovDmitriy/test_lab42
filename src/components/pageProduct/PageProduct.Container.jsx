@@ -12,8 +12,7 @@ const getInfo = (arr) => {
 const PageProductsContainer = (props) => {
     props.saveProduct(props.match.params.item.replace(/_/g, " "))
     return props.selectProduct.character !== undefined && props.selectProduct.aboutProduct !== undefined ?
-
-        < PageProduct selectProduct={props.selectProduct} getInfo={(arr)=>getInfo(arr)} />
+        <PageProduct selectProduct={props.selectProduct} getInfo={(arr)=>getInfo(arr)} />
         :
         <></>
 
@@ -22,7 +21,6 @@ const PageProductsContainer = (props) => {
 let mapStateToProps = (state) => {
     return {
         selectProduct: state.Home.selectProduct,
-        categories: state.Home.categories
     }
 }
 let mapDispatchToProps = (dispatch) => {

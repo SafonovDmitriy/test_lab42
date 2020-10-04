@@ -7,7 +7,7 @@ import StarContaner from './../utils/Star/Star.Container';
 
 const PageProduct = (props) => {
     return (<>
-        <Container className={s.Wrapper}>
+        <Container>
             <Row>
                 <Col md={6}>
                     <Photo photo={props.selectProduct.Photo} />

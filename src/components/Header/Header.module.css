@@ -17,3 +17,14 @@ hr {
     margin: 0 auto 1.5vh auto;
     padding: 0.5vh
 }
+.Margin,.Search{
+    margin: 0.5vh 0;
+}
+
+.Search form div div {
+    margin-left: auto;
+}
+
+.Wrapper {
+    width: 100%
+}

@@ -13,45 +13,44 @@ const Header = (props) => {
 
     const [radioValue, setRadioValue] = useState('1');
     let [toogleFilter, setToggleFilter] = useState(false);
-    const radios = [
+    const menuButtons = [
         { name: 'Home', value: '1' },
         { name: 'Favorites', value: '2' },
         { name: 'Category', value: '3' },
     ];
     const showLink = () => {
         return (
-            radios.map((button, idx) => (
+            menuButtons.map((button, idx) => (
                 <Link to={'/' + button.name}>
                     <Button
                         key={idx}
                         name="button"
                         value={button.value}
                         checked={radioValue === button.value}
-                        onChange={(e) => setRadioValue(e.currentTarget.value)}
-                    >
+                        onChange={(e) => setRadioValue(e.currentTarget.value)}>
                         {button.name}
                     </Button>
                 </Link>
-
             ))
         )
     }
     const toggleForFilter = () => {
+        return toogleFilter ?
+            <>
+                <Row>
+                    <Col><PriceFilterContainer /></Col>
+                    <Col><CategoryFilterContainer /></Col>
+                </Row>
+                <Row>
+                    <Button className={s.Clear} onClick={() => props.filterClear()} variant="secondary">Clear all filters</Button>
+                </Row>
 
-        return toogleFilter ? <>
-            <Row>
-                <Col><PriceFilterContainer /></Col>
-                <Col><CategoryFilterContainer /></Col>
-            </Row>
-            <Row>
-                <Button className={s.Clear} onClick={() => props.filterClear()} variant="secondary">Clear all filters</Button>
-            </Row>
-
-            <div onClick={() => setToggleFilter(false)}>
-                <hr />
-                <div className={s.forFilter} >Close Filters</div>
-            </div>
-        </> :
+                <div onClick={() => setToggleFilter(false)}>
+                    <hr />
+                    <div className={s.forFilter} >Close Filters</div>
+                </div>
+            </>
+            :
             <>   <div onClick={() => setToggleFilter(true)}>
                 <hr />
                 <div className={s.forFilter} >Open Filters</div>
@@ -63,26 +62,29 @@ const Header = (props) => {
             <Container>
 
                 <Navbar bg="#122538" variant="dark">
-
-                    <Col md={1}>
-                        <Link to='/Home'>
-                            <Navbar.Brand >Shop</Navbar.Brand>
-                        </Link>
-                    </Col>
-                    <Col md={5}>
-                        <Nav >
-                            <ButtonGroup toggle>
-                                {showLink()}
-                            </ButtonGroup >
-                        </Nav>
-                    </Col>
-                    <Col md={7} >
-                        <Search className={s.Search} />
-                    </Col>
-
+                    <Row className={s.Wrapper}>
+                        <Col md={1} className={s.Margin}>
+                            <Link to='/Home'>
+                                <Navbar.Brand >Shop</Navbar.Brand>
+                            </Link>
+                        </Col>
+                        <Col  md={4} className={s.Margin}>
+                            <Nav >
+                                <ButtonGroup toggle>
+                                    {showLink()}
+                                </ButtonGroup >
+                            </Nav>
+                        </Col>
+                        
+                        <Col  className={s.Search}>
+                            <Search />
+                        </Col>
+                    </Row>
                 </Navbar>
-                {toggleForFilter()}
             </Container >
+            <Container>{toggleForFilter()}</Container>
+
+
         </div >)
 }
 export default Header

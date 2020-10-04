@@ -11,18 +11,8 @@ const Search = (props) => {
             return props.Search(undefined)
         } else {
             let text = formDate.search.split('')
-
-            for (let i = 0; i <= text.length; i++) {
-                if (text[i]) {
-
-                }
-                if (text[0] === " ") {
-                    text.shift()
-                }
-                if (text[text.length - 1] === " ") {
-                    text.pop()
-                }
-            }
+            do { if (text[0] === " ") text.shift() } while (text[0] === " ")
+            do { if (text[text.length - 1] === " ") text.pop() } while (text[text.length - 1] === ` `)
             if (text.length !== 0) {
                 let newSearch = [text[0]]
                 text.reduce((first, second) => {
@@ -33,8 +23,6 @@ const Search = (props) => {
                 })
                 props.Search(newSearch.join(''))
             }
-
-
         }
     }
     return <SearchForm onSubmit={onSubmit} {...props} />

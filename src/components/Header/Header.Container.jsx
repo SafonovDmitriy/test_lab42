@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Header from './Header';
-import { updateState } from '../../Redux/Reducers/Home';
-import { filterClear } from './../../Redux/Reducers/Home';
+import { updateState, filterClear } from '../../Redux/Reducers/Home';
 
 const HeaderContainer = (props) => {
     let favoritesProduct = localStorage.getItem('favoritesProduct')

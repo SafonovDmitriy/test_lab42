@@ -5,8 +5,6 @@ const initialState = {
         { id: 2, Title: 'Стиральные машины' },
         { id: 3, Title: 'Дача, сад, огород' },
         { id: 4, Title: 'Садовая техника' },
-        // { id: 5, Title: 'Дача, сад, огород' },
-        // { id: 6, Title: 'Дача, сад, огород' },
 
     ],
     product: [
@@ -208,8 +206,6 @@ const HomeReduser = (state = initialState, active) => {
                     }
                     product = prod
                 }
-
-
                 return undefined
             })
             return { ...state, selectProduct: product }
@@ -222,9 +218,7 @@ const HomeReduser = (state = initialState, active) => {
             state.favoritesProduct.push(active.idProduct)
             let JSON_favoritesProductAdd = JSON.stringify(state.favoritesProduct)
             localStorage.setItem('favoritesProduct', JSON_favoritesProductAdd)
-
             return { ...state, favoritesProduct: [...state.favoritesProduct] }
-
         case 'DEL-FAVORITE-PRODUCT':
             for (var i = 0; i < state.favoritesProduct.length; i++) {
                 if (state.favoritesProduct[i] === active.idProduct) {
@@ -233,22 +227,13 @@ const HomeReduser = (state = initialState, active) => {
             }
             let JSON_favoritesProductDel = JSON.stringify(state.favoritesProduct)
             localStorage.setItem('favoritesProduct', JSON_favoritesProductDel)
-            return {
-                ...state,
-                favoritesProduct: [...state.favoritesProduct]
-            }
-
+            return { ...state, favoritesProduct: [...state.favoritesProduct] }
         case 'LIST-CATEGORY-FILTER':
-
             return { ...state, categoryFilter: active.arrSelectCategory }
         case 'UPDATE-STATE':
             return { ...state, favoritesProduct: active.newFavoritesProduct, lastProduct: active.lastProduct }
         case 'FILTER-CLEAR':
             return { ...state, newPriceFilters: state.priceFilters, categoryFilter: [] }
-
-
-
-
         default: return { ...state }
     }
 }
