@@ -231,7 +231,11 @@ const HomeReduser = (state = initialState, active) => {
         case 'LIST-CATEGORY-FILTER':
             return { ...state, categoryFilter: active.arrSelectCategory }
         case 'UPDATE-STATE':
-            return { ...state, favoritesProduct: active.newFavoritesProduct, lastProduct: active.lastProduct }
+            return {
+                ...state,
+                favoritesProduct: active.newFavoritesProduct !== null ? active.newFavoritesProduct : [],
+                lastProduct: active.lastProduct !== null ? active.lastProduct : []
+            }
         case 'FILTER-CLEAR':
             return { ...state, newPriceFilters: state.priceFilters, categoryFilter: [] }
         default: return { ...state }

@@ -1,30 +1,44 @@
 import React from 'react';
-import s from './LastProduct.module.css'
+import { Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { Container, Row, Col } from 'react-bootstrap';
-import TinySlider from "tiny-slider-react";
+import Slider from "react-slick";
+import s from './LastProduct.module.css';
 
-const LastProduct = (props) => {
-    return (
-        <Container >
+class LastProduct extends React.Component {
+
+    render() {
+        var settings = {
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            adaptiveHeight: true,
+            autoplay:true,
+            slide: 'Col',
+        };
+
+        return (<>
             <h1>Last Products</h1>
-            <Row>
-                <TinySlider settings={props.settings}  >
-                    {props.lastProduct.map((item, index) => {
+
+            <Slider {...settings}>
+                    {this.props.lastProduct.map((item, index) => {
                         let categor = item.Category.replace(/ /g, '_')
                         let title = item.title.replace(/ /g, '_')
-                        return <>
+                        return <Col className={s.lastProduct}>
                             <Link key={index} to={`/Home/${categor}/${title}`} >
-                                <Col className={s.lastProduct}>
-                                    <img alt={item.title} src={item.photo[0]} />
-                                    <span>{item.title}</span>
-                                </Col>
+                                <img alt={item.title} src={item.photo[0]} />
+                                <label>{item.title}</label>
                             </Link>
-                        </>
+                        </Col>
+
                     })}
-                </TinySlider>
-            </Row>
-        </Container>
-    )
+            </Slider>
+
+        </>
+
+
+        )
+    }
 }
 export default LastProduct

@@ -1,9 +1,23 @@
 
-.lastProduct span {
+.lastProduct{
+    margin: 2vh 0;
+  
+}
+.lastProduct a {
+    display: grid;
+    grid-template-areas: "img" "span";
+    grid-auto-rows: auto 5vh;
     text-align: center;
+    max-width: 35vh;
+}
+
+.lastProduct label {
+    margin-bottom: 10px;
+    grid-area: span;
 }
 
 .lastProduct img {
-    margin: 1vh auto 0px auto;
+    grid-area: img;
+    margin: 1vh auto;
     max-width: 30vh;
 }

@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import { Route, withRouter } from 'react-router-dom';
+import { Route, withRouter,Redirect  } from 'react-router-dom';
 import { compose } from 'redux';
 import CatalogContainer from './components/Content/Catalog/Catalog.Container';
 import CategoriesContainer from './components/Content/Categories/Categories.Container';
@@ -11,12 +11,13 @@ import HeaderContainer from './components/Header/Header.Container';
 import PageProductsContainer from './components/pageProduct/PageProduct.Container';
 function App() {
 
- 
+
   return (
 
     <div >
       <HeaderContainer />
       <Container>
+        <Route exact path={`/`} render={() => <Redirect to='/Home'/>  } />
         <Route exact path={`/Home/`} render={() => <CatalogContainer />} />
         <Route path={`/Home/:category/:item`} render={() => <PageProductsContainer />} />
         <Route exact path={`/Category/`} render={() => <CategoriesContainer />} />

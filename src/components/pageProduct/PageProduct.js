@@ -9,14 +9,14 @@ const PageProduct = (props) => {
     return (<>
         <Container>
             <Row>
-                <Col md={6}>
+                <Col md={5}>
                     <Photo photo={props.selectProduct.Photo} />
                     <h1 className={s.Price}>{"Price: " + props.selectProduct.Price + " $"}</h1>
-                    <StarContaner idProduct={props.selectProduct.id}/>
+                    <StarContaner idProduct={props.selectProduct.id} />
                 </Col>
 
-
-                <Col md={6}>
+                <Col sm={1}></Col>
+                <Col >
                     <Row><h1> {props.selectProduct.Title}</h1> </Row>
                     <Row><h3>About Product</h3></Row>
                     <Row>  <div>{props.getInfo(props.selectProduct.aboutProduct)}</div></Row>
@@ -32,8 +32,8 @@ const PageProduct = (props) => {
 
 
         </Container>
-
         <LastProductContainer />
+
 
     </>
     )

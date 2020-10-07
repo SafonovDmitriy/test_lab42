@@ -4,6 +4,7 @@ import Header from './Header';
 import { updateState, filterClear } from '../../Redux/Reducers/Home';
 
 const HeaderContainer = (props) => {
+
     let favoritesProduct = localStorage.getItem('favoritesProduct')
     let lastProduct = localStorage.getItem('lastProduct')
     props.updateState(JSON.parse(favoritesProduct), JSON.parse(lastProduct))

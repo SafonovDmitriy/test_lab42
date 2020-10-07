@@ -3,12 +3,9 @@ import LastProduct from './LastProduct';
 import { connect } from 'react-redux';
 
 const LastProductContainer = (props) => {
-    const settings = {
-        lazyload: true,
-        items: 4,
-    }
+    
 
-    return props.lastProduct.length !== 0 && (< LastProduct {...props} settings={settings} />)
+    return props.lastProduct.length !== 0 && (< LastProduct {...props} />)
 }
 let mapStateToProps = (state) => {
     return {
